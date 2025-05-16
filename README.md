@@ -4,7 +4,7 @@ This is a R implementation of ODR, as described in our paper:
 Wang, X.W., Weiss, S.T. Hu, F. B, and Liu, Y.Y. [Optimization-based dietary recommendations for healthy eating]. 
 
 <p align="center">
-  <img src="fig.png" alt="demo" width="660" height="270" style="display: block; margin: 0 auto;">
+  <img src="fig.png" alt="demo" width="700" height="250" style="display: block; margin: 0 auto;">
 </p>
 
 ## Contents
