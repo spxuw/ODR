@@ -4,30 +4,29 @@ This is a R implementation of ODR, as described in our paper:
 Wang, X.W., Weiss, S.T. Hu, F. B, and Liu, Y.Y. [Optimization-based dietary recommendations for healthy eating]. 
 
 <p align="center">
-  <img src="fig.png" alt="demo" width="600" height="470" style="display: block; margin: 0 auto;">
+  <img src="fig.png" alt="demo" width="600" height="270" style="display: block; margin: 0 auto;">
 </p>
 
 ## Contents
 - [Overview](#overview)
 - [Environment](#environment)
 - [Repo Contents](#repo-contents)
-- [Data type for DPDR](#Data-type-for-DKI)
-- [How the use the DPDR framework](#How-the-use-the-DPDR-framework)
+- [How the use the ODR framework](#How-the-use-the-ODR-framework)
 
 # Overview
 
-Dietary intervention is an effective way to alter the gut microbiome to promote human health. Yet, due to our limited knowledge of diet-microbe interactions and the highly personalized gut microbial compositions, an efficient method to prescribe personalized dietary recommendations to achieve desired gut microbial compositions is still lacking. Here, we propose a deep learning framework to resolve this challenge. Our key idea is to implicitly learn the diet-microbe interactions by training a deep learning model using paired gut microbiome and dietary intake data of a large population. The well-trained deep learning model enables us to predict the microbial composition of any given species collection and dietary intake. Next, we prescribe personalized dietary recommendations by solving an optimization problem to achieve the desired microbial compositions. We systematically validated this Deep learning-based Personalized Dietary Recommendation (DPDR) framework using synthetic data generated from an established microbial consumer-resource model. We then validated DPDR using real data collected from a diet-microbiome association study. The presented DPDR framework demonstrates the potential of deep learning for personalized nutrition.
+Various diet scores have been developed to assess compliance with dietary guidelines. Yet, enhancing those diet scores is very challenging. Here, we tackle this issue by formalizing an optimization problem and solving it with simulated annealing. Our optimization-based dietary recommendation (ODR) approach, evaluated using Diet-Microbiome Association study data, provides efficient and reasonable recommendations for different diet scores. ODR has the potential to enhance nutritional counseling and promote dietary adherence for healthy eating.
 
 # Environment
-We have tested this code for Python 3.9.7 and Pytorch 2.1.0.
+We have tested this code for R 4.3.1.
 
 # Repo Contents
-(1) A synthetic dataset to test the Deep Learning-based Personalized Dietary Recommendations (DPDR) framework.
+(1) A small demo dataset to test the ODR framework.
 
-(2) Python code to predict the species composition using species assemblage and dietary profile (MLP).
+(2) R code to optimize the diet to improve the healthy eating score (HEI2015 as an example).
 
 
-# Data type for DPDR
+# Data type for ODR
 ## (1) p.csv: matrix of taxanomic profile of size N*M, where N is the number of taxa and M is the sample size (without header).
 
 |           | sample 1 | sample 2 | sample 3 | sample 4 |
@@ -62,7 +61,7 @@ We have tested this code for Python 3.9.7 and Pytorch 2.1.0.
 | nutrient 6 | 0.0006     | 0      | 0     | 0.003     |
 
 
-# How to use the DPDR framework
+# How to use the ODR framework
 Run Python code in "code" folder: "DPDR_mapping.py" by taking p.csv, z.csv and q.csv as input will output the predicted microbiome composition.
 Example: python DPDR_mapping.py --perturbation $perturbation --'sparsity' $sp --'connectivity' $C --noise $ep --ratio $ratio --fold $fold
 
