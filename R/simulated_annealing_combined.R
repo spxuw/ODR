@@ -142,13 +142,55 @@ simulated_annealing_combined <- function(diet, candidate, niter = 5000, bound = 
     EE = 5 - EE
   }
 
+  # Combine unique Food_Description from ori and reco
+  best_state = s_b[rows_i, ]
+  init_state = s_0[rows_0, ]
+
+  unique_food_descriptions <- unique(c(init_state$Food_Description, best_state$Food_Description))
+  dat21 <- data.frame(
+    Food_Description = unique_food_descriptions,
+    ori = sapply(unique_food_descriptions, function(desc) {
+      match_index <- which(init_state$Food_Description == desc)
+      if (length(match_index) > 0) {
+        return(sum(init_state$FoodAmt[match_index]))  # Use sum, mean, or any aggregation
+      } else {
+        return(0)
+      }
+    }),
+    reco = sapply(unique_food_descriptions, function(desc) {
+      match_index <- which(best_state$Food_Description == desc)
+      if (length(match_index) > 0) {
+        return(sum(best_state$FoodAmt[match_index]))  # Use sum, mean, or any aggregation
+      } else {
+        return(0)
+      }
+    }),
+    combined_meal = sapply(unique_food_descriptions, function(desc) {
+      ori_match_index <- which(init_state$Food_Description == desc)
+      reco_match_index <- which(best_state$Food_Description == desc)
+
+      ori_meals <- if (length(ori_match_index) > 0) {
+        init_state$Occ_Name[ori_match_index]
+      } else {
+        character(0)
+      }
+
+      reco_meals <- if (length(reco_match_index) > 0) {
+        best_state$Occ_Name[reco_match_index]
+      } else {
+        character(0)
+      }
+
+      # Combine and get unique meal names
+      combined_meals <- unique(c(ori_meals, reco_meals))
+      return(paste(combined_meals, collapse = ", "))
+    })
+  )
   return(list(
     iterations = niter,
-    best_value = 100 - f_b * 100,
-    best_state = s_b[rows_i, ],
-    init_state = s_0[rows_0, ],
-    initial_score = EE_initial,
-    final_score = EE,
-    alltemp = alltemp
+    meal = dat21,
+    orginal_score = EE_initial,
+    recommended_score = EE,
+    iterated_score = alltemp
   ))
 }
