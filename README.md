@@ -10,20 +10,25 @@ Wang, X.W., Weiss, S.T. Hu, F. B, and Liu, Y.Y. [Optimization-based dietary reco
 ## Contents
 - [Overview](#overview)
 - [Environment](#environment)
+- [Installation](#installation)
 - [Repo Contents](#repo-contents)
 - [How the use the ODR framework](#How-the-use-the-ODR-framework)
-
+- [Additional information](#addition)
+  
 # Overview
-
 Various diet scores have been developed to assess compliance with dietary guidelines. Yet, enhancing those diet scores is very challenging. Here, we tackle this issue by formalizing an optimization problem and solving it with simulated annealing. Our optimization-based dietary recommendation (ODR) approach, evaluated using Diet-Microbiome Association study data, provides efficient and reasonable recommendations for different diet scores. ODR has the potential to enhance nutritional counseling and promote dietary adherence for healthy eating.
 
 # Environment
 We have tested this code for R 4.3.1.
 
-# Repo Contents
-(1) A small demo dataset to test the ODR framework.
+# Installation
+install.packages("remotes")
+remotes::install_github("yourusername/simannealdiet")
 
-(2) R code to optimize the diet to improve the healthy eating score (HEI2015 as an example).
+# Repo Contents
+(1) A simulated dataset to test the ODR framework.
+
+(2) ODR package.
 
 # How to use the ODR framework
 **Prepare the Input Data:** The key step in running the ODR is formatting the input data to be compatible with the R package dietaryindex (see GitHub: https://github.com/jamesjiadazhan/dietaryindex). The required input should include both:
@@ -32,6 +37,10 @@ We have tested this code for R 4.3.1.
 
 (2) Total Nutrient Intakes (for HEI-2015 calculation) derived from ASA24
 
-**Run the Optimization Script:** Execute the R script run_ODR.R to perform the optimization.
+**Optimization Example:** result <- simulated_annealing_combined(demo_asa24_simulated, candidate = 1, niter = 20, diet_score = "HEI2015").
+Original and recommended diet is: "result$meal". The diet score during iteration is: "result$iterated_score".
 
 **Custom Diet Scores:** Users can optimize other diet scores by supplying their own dietary data and modifying the scoring function within the dietaryindex package accordingly.
+
+# Additional information
+During the optimization, we randomly perturbed the existing diet, for instance, replace an exsting food with a randomly selected one. The candidate food was randomly chosen from the entire dataset. All the information of this candidate food is from column 16 to 129, e.g., FoodNum, FoodType, nutrients and Food Pattern Equivalents.
