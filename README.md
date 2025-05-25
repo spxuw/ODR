@@ -41,12 +41,13 @@ remotes::install_github("yourusername/simannealdiet")
 
 **Optimization Example:** <br>
 
+<pre>
 data(demo_asa24_simulated) <br>
 
 result <- simulated_annealing_combined(demo_asa24_simulated, candidate = 1, niter = 20, diet_score = "HEI2015") <br>
 
 Original and recommended diet is: "result$meal". The diet score during iteration is: "result$iterated_score".
-
+</pre>
 **Custom Diet Scores:** Users can optimize other diet scores by supplying their own dietary data and modifying the scoring function within the dietaryindex package accordingly.
 
 # Additional information
