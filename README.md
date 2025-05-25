@@ -43,4 +43,6 @@ Original and recommended diet is: "result$meal". The diet score during iteration
 **Custom Diet Scores:** Users can optimize other diet scores by supplying their own dietary data and modifying the scoring function within the dietaryindex package accordingly.
 
 # Additional information
-During the optimization, we randomly perturbed the existing diet, for instance, replace an exsting food with a randomly selected one. The candidate food was randomly chosen from the entire dataset. All the information of this candidate food is from column 16 to 129, e.g., FoodNum, FoodType, nutrients and Food Pattern Equivalents.
+During the optimization process, we randomly perturbed the existing diet, for example, by replacing a current food item with a randomly selected one. Candidate foods were randomly drawn from the full dataset. Information for each candidate food spans columns 16 to 129, including variables such as FoodNum, FoodType, nutrient profiles, and Food Pattern Equivalents.
+
+Note: This structure should be adjusted if the food information in a custom dataset does not align with this column format.
