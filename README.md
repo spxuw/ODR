@@ -22,8 +22,8 @@ Various diet scores have been developed to assess compliance with dietary guidel
 We have tested this code for R 4.3.1.
 
 # Installation
-install.packages("remotes")
-remotes::install_github("yourusername/simannealdiet")
+<pre> ```install.packages("remotes")
+remotes::install_github("yourusername/simannealdiet") ``` </pre>
 
 # Repo Contents
 (1) A simulated dataset to test the ODR framework.
