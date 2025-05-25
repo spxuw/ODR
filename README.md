@@ -37,7 +37,9 @@ remotes::install_github("yourusername/simannealdiet")
 
 (2) Total Nutrient Intakes (for HEI-2015 calculation) derived from ASA24
 
-**Optimization Example:** result <- simulated_annealing_combined(demo_asa24_simulated, candidate = 1, niter = 20, diet_score = "HEI2015").
+**Optimization Example:** 
+result <- simulated_annealing_combined(demo_asa24_simulated, candidate = 1, niter = 20, diet_score = "HEI2015").
+
 Original and recommended diet is: "result$meal". The diet score during iteration is: "result$iterated_score".
 
 **Custom Diet Scores:** Users can optimize other diet scores by supplying their own dietary data and modifying the scoring function within the dietaryindex package accordingly.
