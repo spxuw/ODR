@@ -11,7 +11,6 @@ Wang, X.W., Weiss, S.T. Hu, F. B, and Liu, Y.Y. [Optimization-based dietary reco
 - [Overview](#overview)
 - [Environment](#environment)
 - [Installation](#installation)
-- [Repo Contents](#repo-contents)
 - [How the use the ODR framework](#How-the-use-the-ODR-framework)
 - [Additional information](#addition)
   
@@ -26,11 +25,6 @@ We have tested this code for R 4.3.1.
 install.packages("remotes")
 remotes::install_github("yourusername/simannealdiet")
 </pre>
-
-# Repo Contents
-(1) A simulated dataset to test the ODR framework.
-
-(2) ODR package.
 
 # How to use the ODR framework
 **Prepare the Input Data:** The key step in running the ODR is formatting the input data to be compatible with the R package dietaryindex (see GitHub: https://github.com/jamesjiadazhan/dietaryindex). The required input should include both:
