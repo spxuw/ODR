@@ -23,7 +23,7 @@ We have tested this code for R 4.3.1.
 # Installation
 <pre>
 install.packages("remotes")
-remotes::install_github("yourusername/simannealdiet")
+remotes::install_github("spxuw/ODR")
 </pre>
 
 # How to use the ODR framework
