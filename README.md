@@ -42,7 +42,7 @@ result <- simulated_annealing_combined(demo_asa24_simulated, candidate = 1, nite
 
 Original and recommended diet are encoded in: "result$meal" ("ori": original food grams; "reco": recommended food grams). The diet score during iteration is: "result$iterated_score".
 </pre>
-**Custom Diet Scores:** Users can optimize other diet scores by supplying their own dietary data and modifying the scoring function within the dietaryindex package accordingly.
+**Custom Diet Scores:** Current code support HEI2015, DII and MED. Users can optimize other diet scores by supplying their own dietary data and modifying the scoring function within the dietaryindex package accordingly.
 
 # Additional information
 During the optimization process, we randomly perturbed the existing diet, for example, by replacing a current food item with a randomly selected one. Candidate foods were randomly drawn from the full dataset. Information for each candidate food spans columns 16 to 129, including variables such as FoodNum, FoodType, nutrient profiles, and Food Pattern Equivalents.
